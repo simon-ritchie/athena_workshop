@@ -1,7 +1,8 @@
-CREATE EXTERNAL TABLE `login`(
+CREATE EXTERNAL TABLE `user_sales_daily`(
   `user_id` bigint, 
-  `time` string, 
-  `device_type` int)
+  `date` string, 
+  `device_type` int, 
+  `sales` bigint)
 PARTITIONED BY ( 
   `dt` string)
 ROW FORMAT SERDE 
@@ -11,7 +12,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
 LOCATION
-  's3://<S3バケット名>/workshop/login'
+  's3://<S3バケット名>/workshop/user_sales_daily'
 TBLPROPERTIES (
   'has_encrypted_data'='false',
     'projection.enabled' = 'true',
@@ -20,4 +21,4 @@ TBLPROPERTIES (
     'projection.dt.format' = 'yyyy-MM-dd',
     'projection.dt.interval' = '1',
     'projection.dt.interval.unit' = 'DAYS',
-    'storage.location.template' = 's3://<S3バケット名>/workshop/login/dt=${dt}');
+    'storage.location.template' = 's3://<S3バケット名>/workshop/user_sales_daily/dt=${dt}');
