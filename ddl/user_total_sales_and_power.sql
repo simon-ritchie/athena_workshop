@@ -1,6 +1,6 @@
 CREATE EXTERNAL TABLE `user_total_sales_and_power`(
   `user_id` bigint, 
-  `time` string, 
+  `date` string, 
   `device_type` int, 
   `total_sales` int, 
   `power` int)
