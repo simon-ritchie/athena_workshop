@@ -10,7 +10,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
 LOCATION
-  's3://simonritchie.athena.workshop/workshop/int_overflow'
+  's3://<S3バケット名>/workshop/int_overflow'
 TBLPROPERTIES (
   'has_encrypted_data'='false',
     'projection.enabled' = 'true',
@@ -19,4 +19,4 @@ TBLPROPERTIES (
     'projection.dt.format' = 'yyyy-MM-dd',
     'projection.dt.interval' = '1',
     'projection.dt.interval.unit' = 'DAYS',
-    'storage.location.template' = 's3://simonritchie.athena.workshop/workshop/int_overflow/dt=${dt}');
+    'storage.location.template' = 's3://<S3バケット名>/workshop/int_overflow/dt=${dt}');
