@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE `book_jp`(
+CREATE EXTERNAL TABLE `lipsum`(
   `date` string, 
   `sentence` string)
 PARTITIONED BY ( 
@@ -10,7 +10,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
 LOCATION
-  's3://<バケット名>/workshop/book_jp'
+  's3://<バケット名>/workshop/lipsum'
 TBLPROPERTIES (
   'has_encrypted_data'='false',
     'projection.enabled' = 'true',
@@ -19,4 +19,4 @@ TBLPROPERTIES (
     'projection.dt.format' = 'yyyy-MM-dd',
     'projection.dt.interval' = '1',
     'projection.dt.interval.unit' = 'DAYS',
-    'storage.location.template' = 's3://<バケット名>/workshop/book_jp/dt=${dt}');
+    'storage.location.template' = 's3://<バケット名>/workshop/lipsum/dt=${dt}');
